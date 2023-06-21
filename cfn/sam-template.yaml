@@ -36,7 +36,7 @@ Resources:
     Properties:
       CodeUri: ../functions/create_and_email_accept_reject_links/
       Handler: app.lambda_handler
-      Runtime: python3.10
+      Runtime: python3.9
       Policies:
       - SNSPublishMessagePolicy:
           TopicName: SNSApprovalEmail      
@@ -49,7 +49,7 @@ Resources:
     Properties:
       CodeUri: ../functions/update_sagemakerEndpoint_API/
       Handler: app.lambda_handler
-      Runtime: python3.10
+      Runtime: python3.9
       Timeout: 600
       Policies:
       - SNSPublishMessagePolicy:
@@ -76,7 +76,7 @@ Resources:
     Properties:
       CodeUri: ../functions/respond_to_links/
       Handler: app.lambda_handler
-      Runtime: python3.10
+      Runtime: python3.9
       Policies:
       - Version: '2012-10-17'
         Statement:
@@ -101,7 +101,7 @@ Resources:
     Properties:
       CodeUri: ../functions/api_sagemaker_endpoint/
       Handler: app.lambda_handler
-      Runtime: python3.10
+      Runtime: python3.9
       Policies:
         - Version: '2012-10-17' # Policy Document
           Statement:
@@ -187,8 +187,8 @@ Resources:
                                 "s3:DeleteObject"
                             ],
                             "Resource": [
-                                "arn:aws:s3:::${S3ModelBucket}",
-                                "arn:aws:s3:::${S3ModelBucket}/*"
+                                "arn:aws-us-gov:s3:::${S3ModelBucket}",
+                                "arn:aws-us-gov:s3:::${S3ModelBucket}/*"
                             ]
                         }
                       ]
@@ -247,11 +247,11 @@ Resources:
                               "sagemaker:AddTags"
                             ],
                             "Resource": [
-                              "arn:aws:sagemaker:${Region}:${AccountID}:training-job/*",
-                              "arn:aws:sagemaker:${Region}:${AccountID}:model/*",
-                              "arn:aws:sagemaker:${Region}:${AccountID}:transform-job/*",
-                              "arn:aws:sagemaker:${Region}:${AccountID}:endpoint-config/*",
-                              "arn:aws:sagemaker:${Region}:${AccountID}:endpoint/*"
+                              "arn:aws-us-gov:sagemaker:${Region}:${AccountID}:training-job/*",
+                              "arn:aws-us-gov:sagemaker:${Region}:${AccountID}:model/*",
+                              "arn:aws-us-gov:sagemaker:${Region}:${AccountID}:transform-job/*",
+                              "arn:aws-us-gov:sagemaker:${Region}:${AccountID}:endpoint-config/*",
+                              "arn:aws-us-gov:sagemaker:${Region}:${AccountID}:endpoint/*"
                             ]
                           },
                           {
@@ -285,8 +285,8 @@ Resources:
                               "events:DescribeRule"
                             ],
                             "Resource": [
-                              "arn:aws:events:${Region}:${AccountID}:rule/StepFunctionsGetEventsForSageMakerTrainingJobsRule",
-                              "arn:aws:events:${Region}:${AccountID}:rule/StepFunctionsGetEventsForSageMakerTransformJobsRule"
+                              "arn:aws-us-gov:events:${Region}:${AccountID}:rule/StepFunctionsGetEventsForSageMakerTrainingJobsRule",
+                              "arn:aws-us-gov:events:${Region}:${AccountID}:rule/StepFunctionsGetEventsForSageMakerTransformJobsRule"
                             ]
                           }  
                       ]

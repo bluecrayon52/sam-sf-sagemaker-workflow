@@ -4,7 +4,7 @@
     "States": {
         "SageMaker Create Training Job": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::sagemaker:createTrainingJob.sync",
+            "Resource": "arn:aws-us-gov:states:::sagemaker:createTrainingJob.sync",
             "Parameters": {
                 "TrainingJobName.$": "$.commitID",
                 "ResourceConfig": {
@@ -78,7 +78,7 @@
         },
         "SageMaker Create Model": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::sagemaker:createModel",
+            "Resource": "arn:aws-us-gov:states:::sagemaker:createModel",
             "Parameters": {
                 "ExecutionRoleArn": "${SagemakerRoleArn}",
                 "ModelName.$": "$.TrainingJobName",
@@ -98,7 +98,7 @@
         },
         "SageMaker Create Transform Job": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::sagemaker:createTransformJob.sync",
+            "Resource": "arn:aws-us-gov:states:::sagemaker:createTransformJob.sync",
             "Parameters": {
                 "ModelName.$": "$.TrainingJobName",
                 "TransformInput": {
@@ -139,7 +139,7 @@
         },
         "Send Approve/Reject Email Request": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+            "Resource": "arn:aws-us-gov:states:::lambda:invoke.waitForTaskToken",
             "Parameters": {
                 "FunctionName": "${CreateAndEmailLinkFnName}",
                 "Payload": {
@@ -161,7 +161,7 @@
         },
         "Sagemaker Create Endpoint Config": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::sagemaker:createEndpointConfig",
+            "Resource": "arn:aws-us-gov:states:::sagemaker:createEndpointConfig",
             "Parameters": {
                 "EndpointConfigName.$": "$.TrainingJobName",
                 "ProductionVariants": [
@@ -187,7 +187,7 @@
         },
         "Sagemaker Create Endpoint": {
             "Type": "Task",
-            "Resource": "arn:aws:states:::sagemaker:createEndpoint",
+            "Resource": "arn:aws-us-gov:states:::sagemaker:createEndpoint",
             "Parameters": {
                 "EndpointName.$": "$.TrainingJobName",
                 "EndpointConfigName.$": "$.TrainingJobName"
