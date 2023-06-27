@@ -9,7 +9,7 @@
                 "TrainingJobName.$": "$.commitID",
                 "ResourceConfig": {
                     "InstanceCount": 1,
-                    "InstanceType": "ml.c4.2xlarge",
+                    "InstanceType": "ml.c5.2xlarge",
                     "VolumeSizeInGB": 20
                 },
                 "HyperParameters": {
@@ -122,7 +122,7 @@
                 },
                 "TransformResources": {
                     "InstanceCount": 1,
-                    "InstanceType": "ml.m4.xlarge"
+                    "InstanceType": "ml.m5.xlarge"
                 },
                 "TransformJobName.$": "$.TrainingJobName"
             },
@@ -168,7 +168,7 @@
                     {
                         "InitialInstanceCount": 1,
                         "InitialVariantWeight": 1,
-                        "InstanceType": "ml.t2.medium",
+                        "InstanceType": "ml.t3.medium",
                         "ModelName.$": "$.TrainingJobName",
                         "VariantName": "AllTraffic"
                     }
