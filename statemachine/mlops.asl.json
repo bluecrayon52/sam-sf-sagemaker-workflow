@@ -168,7 +168,7 @@
                     {
                         "InitialInstanceCount": 1,
                         "InitialVariantWeight": 1,
-                        "InstanceType": "ml.t2.medium",
+                        "InstanceType": "ml.m5.xlarge",
                         "ModelName.$": "$.TrainingJobName",
                         "VariantName": "AllTraffic"
                     }
